@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>She Care's - Telemedicine</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            padding: 20px 20px;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            font-weight: bold;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            animation: colorChange 3s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #1abc9c;
+            }
+            100% {
+                color: #e74c3c;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 20px;
+            flex-grow: 1;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .option {
+            background: white;
+            padding: 30px;
+            margin: 15px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            animation: fadeInOption 1s forwards;
+        }
+
+        @keyframes fadeInOption {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .option h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .option p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .option button {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .option button:hover {
+            background: #16a085;
+            transform: scale(1.1);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #2c3e50;
+            padding: 12px;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .bottom-nav span {
+            cursor: pointer;
+        }
+
+        .bottom-nav span:hover {
+            transform: scale(1.1);
+        }
+
+        /* Profile Buttons */
+        .profile {
+            display: flex;
+            gap: 10px;
+        }
+
+        .profile button {
+            background: #1abc9c;
+            border: none;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .profile button:hover {
+            background: #16a085;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>She Care's</h1>
+        <div class="profile">
+            <button>View Profile</button>
+            <button>Sign Out</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="option" id="appointment-section">
+            <h2>Appointment Booking</h2>
+            <p>Book an appointment with one of our trusted doctors to get the best care. We ensure a comfortable experience.</p>
+            <button onclick="window.location.href='appointment-booking.html'">📅 Book Now</button>
+        </div>
+
+        <div class="option" id="consultation-section">
+            <h2>Online Consultation</h2>
+            <p>Consult with our doctors online from the comfort of your home, at your convenience. Get professional advice right away.</p>
+            <button onclick="window.location.href='online-consultation.html'">💬 Start Consultation</button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <span>🏠 Home</span>
+        <span>📅 Bookings</span>
+        <span>💬 Messages</span>
+        <span>🛒 Orders</span>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        window.onload = () => {
+            const appointmentSection = document.getElementById('appointment-section');
+            const consultationSection = document.getElementById('consultation-section');
+
+            // Fading animation for sections
+            setTimeout(() => {
+                appointmentSection.style.animation = "fadeInOption 1s forwards";
+            }, 100); // Delay for smooth fade-in effect
+
+            setTimeout(() => {
+                consultationSection.style.animation = "fadeInOption 1s forwards";
+            }, 300); // Staggered delay for the second option
+        };
+    </script>
+</body>
+</html>
+
