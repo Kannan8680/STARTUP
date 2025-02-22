@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking - She Care's</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            padding: 20px 20px;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            font-weight: bold;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px; /* Increased space to move content further down */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Left Side - Recently Consulted */
+        .recent-consulted {
+            background: white;
+            padding: 20px;
+            width: 48%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .recent-consulted h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .doctor-card {
+            display: inline-block;
+            background: #fff;
+            padding: 15px;
+            margin: 10px;
+            width: 220px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .doctor-card:hover {
+            transform: scale(1.05);
+        }
+
+        .doctor-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .doctor-card p {
+            margin: 5px 0;
+        }
+
+        .doctor-card button {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .doctor-card button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Right Side - Appointment Form */
+        .appointment-form {
+            background: white;
+            padding: 30px;
+            width: 48%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInOption 1s forwards;
+        }
+
+        @keyframes fadeInOption {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .appointment-form h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .appointment-form p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .appointment-form input,
+        .appointment-form select,
+        .appointment-form button {
+            padding: 12px;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .appointment-form button {
+            background: #1abc9c;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .appointment-form button:hover {
+            background: #16a085;
+            transform: scale(1.1);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #2c3e50;
+            padding: 12px;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+        }
+
+        .bottom-nav span {
+            cursor: pointer;
+        }
+
+        .bottom-nav span:hover {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <span>📅 Appointment Booking</span>
+        <div class="profile">
+            <button>View Profile</button>
+            <button>Sign Out</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Left Side - Recently Consulted Doctors -->
+        <div class="recent-consulted">
+            <h3>Recently Consulted Doctors</h3>
+            <div class="doctor-card">
+                <img src="doctor1.jpg" alt="Doctor">
+                <p><strong>Dr. Sarah Johnson</strong></p>
+                <p>Cardiologist</p>
+                <p>Experience: 10 years</p>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <button>📅 Book</button>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor2.jpg" alt="Doctor">
+                <p><strong>Dr. Mark Roberts</strong></p>
+                <p>Dermatologist</p>
+                <p>Experience: 8 years</p>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <button>📅 Book</button>
+            </div>
+        </div>
+
+        <!-- Right Side - Appointment Form -->
+        <div class="appointment-form">
+            <h2>Book Your Appointment</h2>
+            <p>Choose a doctor and schedule your appointment easily.</p>
+            <form id="appointmentForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <select id="doctorSelect" required>
+                    <option value="dr_sarah">Dr. Sarah Johnson (Cardiologist)</option>
+                    <option value="dr_mark">Dr. Mark Roberts (Dermatologist)</option>
+                </select>
+                <input type="datetime-local" id="appointmentDate" required>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <span>🏠 Home</span>
+        <span>📅 Bookings</span>
+        <span>💬 Messages</span>
+        <span>🛒 Orders</span>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Appointment successfully booked!');
+        });
+    </script>
+
+</body>
+</html>
+
